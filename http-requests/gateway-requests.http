@@ -1,0 +1,24 @@
+# ----------------------------------------------
+### Bear Inventory - GET Beer Inventory By ID
+< {%
+    request.variables.set("beerId", "5e3b722e-bb8a-4395-8e03-0bc567126b7d")
+%}
+GET http://localhost:9090/api/v1/beer/{{beerId}}/inventory
+Authorization: Basic good beer
+
+
+# ----------------------------------------------
+### Beer Service - Beer List without Query Params
+GET http://localhost:9090/api/v1/beer/
+
+
+# ----------------------------------------------
+### Order Service - List of Customers without params
+GET http://localhost:9090/api/v1/customers/
+
+
+### Order Service - List of Orders for a Customer
+< {%
+    request.variables.set("customerId", "9011f845-9a12-4c57-84e8-1ee924c49db1")
+%}
+GET http://localhost:9090/api/v1/customers/{{customerId}}/orders

@@ -1,0 +1,6 @@
+### Bear Inventory - GET Beer Inventory By ID
+< {%
+    request.variables.set("beerId", "a712d914-61ea-4623-8bd0-32c0f6545bfd")
+%}
+GET http://localhost:8082/api/v1/beer/{{beerId}}/inventory
+Authorization: Basic good beer

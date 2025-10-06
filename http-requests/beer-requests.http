@@ -1,0 +1,64 @@
+@beerId=5e3b722e-bb8a-4395-8e03-0bc567126b7d
+@upc=5e3b722e-bb8a-4395-8e03-0bc567126b7d
+
+
+### Beer Service - Beer List without Query Params
+GET http://localhost:8080/api/v1/beer
+
+
+### Beer Service - Beer List with Query Params
+< {%
+    request.variables.set("pageNumber", "1")
+    request.variables.set("pageSize", "10")
+    request.variables.set("beerName", "Cage Blond")
+    request.variables.set("beerStyle", "ALE") // LAGER, PILSNER, STOUT, GOSE, PORTER, ALE, WHEAT, IPA, PALE_ALE, SAISON
+%}
+GET http://localhost:8080/api/v1/beer?
+    pageNumber={{pageNumber}}&
+    pageSize={{pageSize}}&
+    beerName={{beerName}}&
+    beerStyle={{beerStyle}}&
+    showInventoryOnHand=false
+
+
+###
+POST http://localhost:8080/api/v1/beer
+Content-Type: application/json
+
+{
+  "id": "",
+  "version": 0,
+  "createdDate": "",
+  "lastModifiedDate": "",
+  "beerName": "",
+  "beerStyle": "LAGER",
+  "upc": "",
+  "quantityOnHand": 0,
+  "price": {}
+}
+
+###
+GET http://localhost:8080/api/v1/beer/{{beerId}}?
+    showInventoryOnHand=false
+
+###
+PUT http://localhost:8080/api/v1/beer/{{beerId}}
+Content-Type: application/json
+
+{
+  "id": "",
+  "version": 0,
+  "createdDate": "",
+  "lastModifiedDate": "",
+  "beerName": "",
+  "beerStyle": "LAGER",
+  "upc": "",
+  "quantityOnHand": 0,
+  "price": {}
+}
+
+###
+DELETE http://localhost:8080/api/v1/beer/{{beerId}}
+
+###
+GET http://localhost:8080/api/v1/beerUpc/{{upc}}

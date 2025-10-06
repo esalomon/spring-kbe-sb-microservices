@@ -1,0 +1,42 @@
+@customerId=9011f845-9a12-4c57-84e8-1ee924c49db1
+@orderId=05ffb99a-dd8c-4d70-9b22-3d00c7755e03
+
+
+### Order Service - List of Customers without params
+GET http://localhost:8081/api/v1/customers/
+
+
+### Order Service - List of Customers with params
+GET http://localhost:8081/api/v1/customers/?
+    pageNumber=1&
+    pageSize=10
+
+
+### Order Service - List of Orders for a Customer
+< {%
+    //request.variables.set("customerId", "a712d914-61ea-4623-8bd0-32c0f6545bfd")
+%}
+GET http://localhost:8081/api/v1/customers/{{customerId}}/orders?
+    pageNumber=1&
+    pageSize=10
+
+
+### Order Service - Creates a New Order for a Customer
+POST http://localhost:8081/api/v1/customers/{{customerId}}/orders
+Content-Type: application/json
+
+{
+  "customerId": "{{customerId}}",
+  "beerOrderLines": [{
+    "id": "b2c3d4e5-6789-01ab-cdef-2345678901bc"
+  }]
+}
+
+
+### Order Service - Retrieves a specific Order for a Customer
+GET http://localhost:8081/api/v1/customers/{{customerId}}/orders/{{orderId}}
+
+
+### Order Service - Marks an Order as Picked Up for a Customer
+PUT http://localhost:8081/api/v1/customers/{{customerId}}/orders/{{orderId}}/pickup
+

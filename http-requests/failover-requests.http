@@ -1,0 +1,6 @@
+### Inventory Failover - GET Beer Inventory By ID
+GET http://localhost:8083/inventory-failover/
+
+###
+GET http://localhost:8083/inventory-failover/
+Accept: application/stream+json
